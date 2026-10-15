@@ -1,7 +1,8 @@
 .skills-cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-  gap: 20px;
+  /* Fixed 3 columns on desktop for balanced 3/3 cards layout (3 on top, 3 on bottom) */
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
   width: 100%;
   box-sizing: border-box;
 }
@@ -28,6 +29,13 @@
   gap: 8px;
   width: 100%;
   min-width: 0;
+}
+
+@media (max-width: 1024px) {
+  .skills-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
 }
 
 @media (max-width: 768px) {

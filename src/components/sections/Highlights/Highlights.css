@@ -1,18 +1,24 @@
 .highlights-grid-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  /* Balanced 3/3 grid layout on desktop (3 on top, 3 on bottom) */
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .highlight-metric-card {
   padding: 32px 28px;
   display: flex;
   flex-direction: column;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 .highlight-number {
   font-family: var(--hd);
-  font-size: clamp(44px, 5.5vw, 68px);
+  font-size: clamp(40px, 4.5vw, 60px);
   font-weight: 800;
   line-height: 1;
   margin-bottom: 12px;
@@ -32,8 +38,19 @@
   margin: 0;
 }
 
+@media (max-width: 1024px) {
+  .highlights-grid-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+
 @media (max-width: 640px) {
   .highlights-grid-container {
     grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .highlight-metric-card {
+    padding: 24px 20px;
   }
 }
