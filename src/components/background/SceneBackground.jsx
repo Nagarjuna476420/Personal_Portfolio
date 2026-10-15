@@ -43,7 +43,7 @@ export function SceneBackground() {
           color,
           wireframe: true,
           transparent: true,
-          opacity: isMobile ? 0.15 : 0.35
+          opacity: isMobile ? 0.22 : 0.40
         });
         const mesh = new THREE.Mesh(geometry, material);
         mesh.position.set(x, y, z);
@@ -105,25 +105,23 @@ export function SceneBackground() {
       window.addEventListener('pointermove', handlePointerMove, { passive: true });
       window.addEventListener('resize', handleResize);
 
-      // 6. Animation Loop
+      // 6. Animation Loop - continuous fluid motion
       const animate = (time) => {
-        const speed = prefersReducedMotion ? 0 : time * 0.0002;
+        const speed = time * 0.0002;
 
         meshes.forEach((mesh, index) => {
-          mesh.rotation.x = speed * (1 + index * 0.4);
-          mesh.rotation.y = speed * 1.3;
+          mesh.rotation.x = speed * (1 + index * 0.35);
+          mesh.rotation.y = speed * 1.25;
         });
 
-        points.rotation.y = speed * 0.35;
+        points.rotation.y = speed * 0.3;
 
         const scrollOffset = window.scrollY || 0;
         group.position.y = scrollOffset * 0.0016;
         points.position.y = scrollOffset * 0.0008;
 
-        if (!prefersReducedMotion) {
-          camera.position.x += (mouseX * 1.2 - camera.position.x) * 0.04;
-          camera.position.y += (-mouseY * 0.8 - camera.position.y) * 0.04;
-        }
+        camera.position.x += (mouseX * 1.2 - camera.position.x) * 0.04;
+        camera.position.y += (-mouseY * 0.8 - camera.position.y) * 0.04;
 
         camera.lookAt(0, 0, 0);
         renderer.render(scene, camera);

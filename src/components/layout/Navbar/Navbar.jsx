@@ -35,7 +35,17 @@ export function Navbar() {
   return (
     <header className="navbar-fixed-header">
       <nav ref={capsuleRef} className="navbar-capsule glass-panel" aria-label="Main Navigation">
-        {navLinks.map((item) => {
+        {/* Sleek Brand Logo Pill */}
+        <a
+          href="#home"
+          className={`nav-brand-logo ${activeSection === 'home' ? 'is-active' : ''}`}
+          onClick={(e) => handleNavClick(e, 'home')}
+          aria-label="Nagarjuna Reddy Chintala - Home"
+        >
+          <span className="nav-logo-badge">NR</span>
+        </a>
+
+        {navLinks.filter((item) => item.id !== 'home').map((item) => {
           const isActive = activeSection === item.id;
           return (
             <a

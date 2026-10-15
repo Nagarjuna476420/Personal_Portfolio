@@ -3,8 +3,13 @@ import { techMarqueeItems } from '../../../data/portfolioData';
 import './TechMarquee.css';
 
 export function TechMarquee() {
-  // Duplicate array to achieve seamless infinite looping
-  const duplicatedItems = [...techMarqueeItems, ...techMarqueeItems];
+  // Quadruple items to ensure seamless infinite looping even on ultra-wide screens
+  const duplicatedItems = [
+    ...techMarqueeItems,
+    ...techMarqueeItems,
+    ...techMarqueeItems,
+    ...techMarqueeItems
+  ];
 
   return (
     <div className="marquee-outer-container" aria-label="Technologies Marquee">

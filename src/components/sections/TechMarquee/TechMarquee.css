@@ -8,6 +8,7 @@
   z-index: 2;
   background: rgba(18, 20, 26, 0.4);
   backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
   user-select: none;
   width: 100%;
   max-width: 100%;
@@ -18,12 +19,14 @@
   display: flex;
   gap: 50px;
   width: max-content;
-  animation: marquee-scroll 45s linear infinite;
   will-change: transform;
+  animation: tech-marquee-scroll 40s linear infinite;
+  -webkit-animation: tech-marquee-scroll 40s linear infinite;
 }
 
 .marquee-outer-container:hover .marquee-track {
   animation-play-state: paused;
+  -webkit-animation-play-state: paused;
 }
 
 .marquee-item {
@@ -35,12 +38,31 @@
   transition: all var(--transition-fast);
   white-space: nowrap;
   letter-spacing: -0.02em;
+  flex-shrink: 0;
 }
 
 .marquee-item:hover {
   color: var(--tx);
   -webkit-text-stroke: 1.2px var(--a);
   text-shadow: 0 0 20px rgba(122, 162, 255, 0.4);
+}
+
+@keyframes tech-marquee-scroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@-webkit-keyframes tech-marquee-scroll {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(-50%, 0, 0);
+  }
 }
 
 @media (max-width: 768px) {
@@ -51,7 +73,8 @@
 
   .marquee-track {
     gap: 30px;
-    animation-duration: 32s;
+    animation-duration: 28s;
+    -webkit-animation-duration: 28s;
   }
 
   .marquee-item {
@@ -59,11 +82,3 @@
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .marquee-track {
-    animation: none;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 100%;
-  }
-}
