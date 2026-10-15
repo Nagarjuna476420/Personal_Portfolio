@@ -10,7 +10,8 @@ export function Hero() {
   const prefersReducedMotion = useReducedMotion();
 
   useEffect(() => {
-    if (prefersReducedMotion) return;
+    const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
+    if (prefersReducedMotion || isMobile) return;
 
     const handleScroll = () => {
       setScrollY(window.scrollY);
@@ -20,17 +21,18 @@ export function Hero() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [prefersReducedMotion]);
 
-  // Subtle parallax translation and opacity fade
-  const parallaxOffset = prefersReducedMotion ? 0 : Math.min(scrollY * 0.25, 200);
-  const opacityFade = prefersReducedMotion ? 1 : Math.max(1 - scrollY / 700, 0.2);
+  // Subtle parallax translation and opacity fade on desktop only
+  const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
+  const parallaxOffset = (prefersReducedMotion || isMobile) ? 0 : Math.min(scrollY * 0.25, 200);
+  const opacityFade = (prefersReducedMotion || isMobile) ? 1 : Math.max(1 - scrollY / 700, 0.2);
 
   return (
     <section id="home" className="hero-section" aria-label="Home">
       <div
         className="hero-inner-container"
         style={{
-          transform: `translate3d(0, ${parallaxOffset}px, 0)`,
-          opacity: opacityFade
+          transform: isMobile ? 'none' : `translate3d(0, ${parallaxOffset}px, 0)`,
+          opacity: isMobile ? 1 : opacityFade
         }}
       >
         <div className="hero-badge">

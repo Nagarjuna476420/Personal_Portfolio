@@ -142,11 +142,7 @@
   }
 
   .sticky-active-indicator {
-    margin-top: 10px;
-  }
-
-  .sticky-active-company {
-    font-size: clamp(30px, 8vw, 44px);
+    display: none !important;
   }
 
   .timeline-articles-list {

@@ -27,10 +27,14 @@ export function SceneBackground() {
 
       // 2. Scene & Camera
       const scene = new THREE.Scene();
+      const isMobile = window.innerWidth <= 768;
       const camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 0.1, 100);
-      camera.position.z = 9;
+      camera.position.z = isMobile ? 14 : 9;
 
       const group = new THREE.Group();
+      if (isMobile) {
+        group.scale.set(0.65, 0.65, 0.65);
+      }
       scene.add(group);
 
       // 3. Floating 3D Geometric Objects
@@ -39,7 +43,7 @@ export function SceneBackground() {
           color,
           wireframe: true,
           transparent: true,
-          opacity: 0.35
+          opacity: isMobile ? 0.15 : 0.35
         });
         const mesh = new THREE.Mesh(geometry, material);
         mesh.position.set(x, y, z);
@@ -86,6 +90,13 @@ export function SceneBackground() {
         if (!renderer || !camera) return;
         const width = window.innerWidth;
         const height = window.innerHeight;
+        const mobile = width <= 768;
+        camera.position.z = mobile ? 14 : 9;
+        if (mobile) {
+          group.scale.set(0.65, 0.65, 0.65);
+        } else {
+          group.scale.set(1, 1, 1);
+        }
         renderer.setSize(width, height, false);
         camera.aspect = width / height;
         camera.updateProjectionMatrix();
