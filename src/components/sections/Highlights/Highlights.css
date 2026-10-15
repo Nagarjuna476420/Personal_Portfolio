@@ -1,0 +1,39 @@
+.highlights-grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.highlight-metric-card {
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+}
+
+.highlight-number {
+  font-family: var(--hd);
+  font-size: clamp(44px, 5.5vw, 68px);
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.highlight-title {
+  font-family: var(--hd);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--tx-heading);
+  margin-bottom: 8px;
+}
+
+.highlight-desc {
+  font-size: 14.5px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .highlights-grid-container {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,23 @@
+.glass-card-container {
+  padding: 28px;
+  position: relative;
+  overflow: hidden;
+  will-change: transform;
+  transform-style: preserve-3d;
+  transition: transform var(--transition-fast), border-color var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.glass-card-container.has-glow:hover {
+  border-color: rgba(122, 162, 255, 0.4);
+  box-shadow: 0 10px 30px -10px rgba(122, 162, 255, 0.18), inset 0 0 20px rgba(255, 255, 255, 0.02);
+}
+
+.glass-card-container.is-clickable {
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .glass-card-container {
+    padding: 20px;
+  }
+}

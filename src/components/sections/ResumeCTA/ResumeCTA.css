@@ -1,0 +1,42 @@
+.resume-cta-inner {
+  padding: clamp(36px, 6vw, 68px);
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-color: rgba(122, 162, 255, 0.25);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.resume-cta-icon-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 107, 154, 0.1);
+  border: 1px solid rgba(255, 107, 154, 0.25);
+  color: var(--b);
+  font-size: 13.5px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.resume-cta-title {
+  font-size: clamp(32px, 5vw, 64px);
+  margin-bottom: 16px;
+  line-height: 1.1;
+}
+
+.resume-cta-desc {
+  font-size: clamp(16px, 1.8vw, 19px);
+  max-width: 58ch;
+  margin-bottom: 32px;
+}
+
+.resume-cta-btn-wrapper {
+  display: flex;
+  justify-content: center;
+}

@@ -1,0 +1,14 @@
+.portfolio-app-root {
+  position: relative;
+  min-height: 100vh;
+  background-color: var(--bg);
+  color: var(--tx);
+  /* Use clip instead of hidden to prevent horizontal overflow without breaking position: sticky */
+  overflow-x: clip;
+}
+
+.portfolio-main-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}

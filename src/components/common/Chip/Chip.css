@@ -1,0 +1,51 @@
+.chip-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--bd);
+  border-radius: var(--radius-full);
+  line-height: 1.2;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.chip-sm {
+  padding: 5px 10px;
+  font-size: 12px;
+}
+
+.chip-md {
+  padding: 7px 15px;
+  font-size: 13.5px;
+}
+
+.chip-default {
+  background: var(--glass);
+  border: 1px solid var(--line);
+  color: var(--tx);
+  backdrop-filter: var(--glass-blur);
+}
+
+.chip-interactive:hover {
+  border-color: var(--b);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 107, 154, 0.2);
+}
+
+.chip-accent {
+  background: rgba(122, 162, 255, 0.12);
+  border: 1px solid rgba(122, 162, 255, 0.35);
+  color: var(--a);
+}
+
+.chip-accent.chip-interactive:hover {
+  border-color: var(--a);
+  box-shadow: 0 4px 12px rgba(122, 162, 255, 0.3);
+}
+
+.chip-outline {
+  background: transparent;
+  border: 1px solid var(--line-strong);
+  color: var(--mut-light);
+}

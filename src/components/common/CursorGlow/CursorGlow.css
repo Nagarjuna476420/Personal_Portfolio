@@ -1,0 +1,19 @@
+.cursor-ambient-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 420px;
+  height: 420px;
+  margin: -210px 0 0 -210px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(122, 162, 255, 0.12), rgba(255, 107, 154, 0.05) 45%, transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+  will-change: transform;
+}
+
+@media (max-width: 860px) {
+  .cursor-ambient-glow {
+    display: none;
+  }
+}

@@ -1,0 +1,210 @@
+.projects-cards-list {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  width: 100%;
+}
+
+.project-case-card {
+  padding: clamp(22px, 3.5vw, 44px);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.project-card-grid {
+  display: grid;
+  /* Use minmax(0, ...) to prevent pre/code elements from overflowing CSS Grid */
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: 40px;
+  align-items: start;
+  width: 100%;
+}
+
+.project-info-column {
+  min-width: 0;
+  width: 100%;
+}
+
+.project-visual-column {
+  min-width: 0;
+  width: 100%;
+}
+
+.project-role-badge {
+  display: inline-block;
+  font-family: var(--bd);
+  font-size: 13px;
+  color: var(--a);
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.project-card-title {
+  font-size: clamp(22px, 2.5vw, 32px);
+  margin-bottom: 8px;
+  color: var(--tx-heading);
+}
+
+.project-tagline {
+  font-size: 15.5px;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.project-meta-block {
+  margin-bottom: 20px;
+}
+
+.project-subheading {
+  font-family: var(--hd);
+  font-size: 16px;
+  color: var(--a);
+  margin-bottom: 8px;
+  letter-spacing: 0.02em;
+}
+
+.project-description {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--mut-light);
+  margin: 0;
+}
+
+.project-features-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.project-features-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14.5px;
+  color: var(--mut-light);
+  line-height: 1.5;
+}
+
+.feature-check-icon {
+  color: var(--success);
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+.project-outcome-text {
+  font-size: 15px;
+  color: #ffffff;
+  font-weight: 500;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Responsive Terminal Card */
+.code-terminal-card {
+  background: #080a0e;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.terminal-top-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid var(--line);
+}
+
+.terminal-circle {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.terminal-circle.red { background: #ff5f56; }
+.terminal-circle.yellow { background: #ffbd2e; }
+.terminal-circle.green { background: #27c93f; }
+
+.terminal-title {
+  margin-left: 8px;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--mut);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.terminal-code-body {
+  padding: clamp(14px, 2vw, 20px);
+  margin: 0;
+  font-family: var(--mono);
+  font-size: clamp(11.5px, 1.1vw, 13px);
+  line-height: 1.65;
+  color: #b9bccb;
+  overflow-x: auto;
+  white-space: pre;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Styled Terminal Scrollbar */
+.terminal-code-body::-webkit-scrollbar {
+  height: 6px;
+}
+
+.terminal-code-body::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.terminal-code-body::-webkit-scrollbar-thumb {
+  background: rgba(122, 162, 255, 0.35);
+  border-radius: 4px;
+}
+
+.terminal-code-body::-webkit-scrollbar-thumb:hover {
+  background: var(--a);
+}
+
+.project-chips-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  width: 100%;
+}
+
+/* Responsive Grid Breakpoints */
+@media (max-width: 1080px) {
+  .project-card-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+
+@media (max-width: 640px) {
+  .project-case-card {
+    padding: 18px;
+  }
+  .terminal-code-body {
+    padding: 12px 14px;
+    font-size: 11.5px;
+    line-height: 1.55;
+  }
+}

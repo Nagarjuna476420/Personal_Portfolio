@@ -1,0 +1,33 @@
+.skills-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+.skill-category-card {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.skill-category-title {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: var(--tx-heading);
+}
+
+.skill-category-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+@media (max-width: 640px) {
+  .skills-cards-grid {
+    grid-template-columns: 1fr;
+  }
+  .skill-category-card {
+    padding: 22px;
+  }
+}

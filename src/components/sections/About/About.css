@@ -1,0 +1,52 @@
+.about-grid-layout {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 56px;
+  align-items: start;
+}
+
+.about-narrative p {
+  font-size: 17px;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.about-chips-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.about-stats-column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.stat-card {
+  padding: 24px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.stat-number {
+  font-family: var(--hd);
+  font-size: clamp(38px, 4.5vw, 52px);
+  font-weight: 800;
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 15px;
+  color: var(--mut-light);
+  font-weight: 500;
+}
+
+@media (max-width: 860px) {
+  .about-grid-layout {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+}

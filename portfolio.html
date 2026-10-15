@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Nagarjuna Reddy Chinthala · Full Stack Developer</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=DM+Sans:wght@400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0b0c10;
+            --bg2: #12141a;
+            --tx: #ece9e2;
+            --mut: #9a98a3;
+            --a: #7aa2ff;
+            --b: #ff6b9a;
+            --line: rgba(255, 255, 255, .1);
+            --glass: rgba(255, 255, 255, .045);
+            --hd: 'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif;
+            --bd: 'DM Sans', 'Segoe UI', system-ui, sans-serif;
+            color-scheme: dark;
+            box-sizing: border-box;
+            padding-top: env(safe-area-inset-top, 0px);
+            padding-bottom: env(safe-area-inset-bottom, 0px)
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: env(safe-area-inset-top, 0px)
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: inherit
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--tx);
+            font: 17px/1.6 var(--bd);
+            overflow-x: hidden
+        }
+
+        #bg {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none
+        }
+
+        main,
+        nav,
+        footer {
+            position: relative;
+            z-index: 1
+        }
+
+        section {
+            padding: 120px 6vw;
+            max-width: 1280px;
+            margin: auto
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: var(--hd);
+            line-height: 1.02;
+            margin: 0;
+            letter-spacing: -.02em
+        }
+
+        h2 {
+            font-size: clamp(38px, 6.5vw, 88px);
+            font-weight: 800;
+            margin-bottom: 48px
+        }
+
+        h3 {
+            font-size: clamp(22px, 2.4vw, 32px);
+            font-weight: 700
+        }
+
+        p {
+            margin: 0 0 1em;
+            max-width: 62ch
+        }
+
+        .mut {
+            color: var(--mut)
+        }
+
+        .g {
+            background: linear-gradient(100deg, var(--a), var(--b));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent
+        }
+
+        .glass {
+            background: var(--glass);
+            border: 1px solid var(--line);
+            border-radius: 22px;
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px)
+        }
+
+        nav {
+            position: fixed;
+            top: calc(14px + env(safe-area-inset-top, 0px));
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 20;
+            display: flex;
+            gap: 2px;
+            padding: 6px;
+            border-radius: 99px;
+            max-width: 94vw;
+            overflow-x: auto;
+            scrollbar-width: none;
+            background: rgba(18, 20, 26, .7);
+            border: 1px solid var(--line);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px)
+        }
+
+        nav::-webkit-scrollbar {
+            display: none
+        }
+
+        nav a {
+            color: var(--mut);
+            text-decoration: none;
+            font-size: 14px;
+            padding: 8px 14px;
+            border-radius: 99px;
+            transition: .3s;
+            white-space: nowrap
+        }
+
+        nav a.on {
+            color: #0b0c10;
+            background: var(--tx)
+        }
+
+        nav a:hover:not(.on) {
+            color: var(--tx)
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 26px;
+            border-radius: 99px;
+            border: 1px solid var(--line);
+            color: var(--tx);
+            text-decoration: none;
+            font-weight: 500;
+            cursor: pointer;
+            background: var(--glass);
+            font: inherit;
+            transition: .3s
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            border-color: var(--a)
+        }
+
+        .btn.p {
+            background: linear-gradient(100deg, var(--a), var(--b));
+            color: #0b0c10;
+            border: 0;
+            font-weight: 700
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px
+        }
+
+        /* hero */
+        #home {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            max-width: none;
+            padding-top: 140px
+        }
+
+        #home .in {
+            max-width: 1280px;
+            width: 100%;
+            margin: auto;
+            will-change: transform
+        }
+
+        #home h1 {
+            font-size: clamp(54px, 11vw, 170px);
+            font-weight: 800;
+            margin-bottom: 20px
+        }
+
+        #home .role {
+            font-size: clamp(16px, 2vw, 22px);
+            color: var(--a);
+            margin-bottom: 18px
+        }
+
+        #home h1 span {
+            display: block
+        }
+
+        .hl {
+            font-family: var(--hd);
+            font-size: clamp(22px, 3.2vw, 40px);
+            max-width: 20ch;
+            margin-bottom: 20px
+        }
+
+        .cur {
+            position: fixed;
+            width: 340px;
+            height: 340px;
+            margin: -170px 0 0 -170px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(122, 162, 255, .14), transparent 65%);
+            z-index: 0;
+            pointer-events: none
+        }
+
+        /* about */
+        .ab {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr;
+            gap: 56px
+        }
+
+        .stats {
+            display: grid;
+            gap: 14px
+        }
+
+        .stat {
+            padding: 24px
+        }
+
+        .stat b {
+            font-family: var(--hd);
+            font-size: 46px;
+            display: block;
+            line-height: 1
+        }
+
+        .chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px
+        }
+
+        .chip {
+            padding: 7px 14px;
+            border-radius: 99px;
+            border: 1px solid var(--line);
+            font-size: 14px;
+            background: var(--glass);
+            transition: .3s
+        }
+
+        .chip:hover {
+            border-color: var(--b);
+            transform: translateY(-3px)
+        }
+
+        /* skills */
+        .sk {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+            gap: 16px
+        }
+
+        .sk .glass {
+            padding: 26px;
+            transition: transform .2s;
+            transform-style: preserve-3d
+        }
+
+        .sk h3 {
+            font-size: 22px;
+            margin-bottom: 16px
+        }
+
+        /* experience */
+        .ex {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 56px;
+            align-items: start
+        }
+
+        .stick {
+            position: sticky;
+            top: 110px
+        }
+
+        .stick .big {
+            font-family: var(--hd);
+            font-weight: 800;
+            font-size: clamp(34px, 5vw, 64px);
+            line-height: 1
+        }
+
+        .tl {
+            border-left: 1px solid var(--line);
+            padding-left: 36px;
+            display: grid;
+            gap: 80px
+        }
+
+        .tl article {
+            position: relative;
+            opacity: .35;
+            transition: .5s
+        }
+
+        .tl article.on {
+            opacity: 1
+        }
+
+        .tl article::before {
+            content: "";
+            position: absolute;
+            left: -43px;
+            top: 8px;
+            width: 13px;
+            height: 13px;
+            border-radius: 50%;
+            background: var(--bg);
+            border: 2px solid var(--mut);
+            transition: .4s
+        }
+
+        .tl article.on::before {
+            background: var(--b);
+            border-color: var(--b);
+            box-shadow: 0 0 18px var(--b)
+        }
+
+        .tl ul,
+        .cs ul {
+            padding-left: 18px;
+            margin: 0 0 18px
+        }
+
+        .tl li,
+        .cs li {
+            margin-bottom: 8px;
+            color: #cfccd4
+        }
+
+        .when {
+            color: var(--a);
+            font-size: 15px;
+            margin: 4px 0 14px
+        }
+
+        /* projects */
+        .cs {
+            padding: clamp(24px, 4vw, 52px);
+            margin-bottom: 28px
+        }
+
+        .cs .top {
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            gap: 44px
+        }
+
+        .cs h4 {
+            margin: 22px 0 8px;
+            font-family: var(--hd);
+            font-size: 18px;
+            color: var(--a)
+        }
+
+        .vis {
+            border-radius: 16px;
+            border: 1px solid var(--line);
+            background: #0a0b0f;
+            padding: 18px;
+            font: 13px/1.7 ui-monospace, Menlo, Consolas, monospace;
+            color: #b9bccb;
+            min-height: 220px;
+            overflow-x: auto
+        }
+
+        .vis i {
+            color: var(--b);
+            font-style: normal
+        }
+
+        .vis u {
+            color: var(--a);
+            text-decoration: none
+        }
+
+        /* featured */
+        #feat {
+            max-width: none;
+            padding: 0
+        }
+
+        .fw {
+            height: 480vh;
+            position: relative
+        }
+
+        .fs {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            display: grid;
+            place-items: center;
+            overflow: hidden;
+            padding: 0 6vw
+        }
+
+        .fs .st {
+            position: absolute;
+            max-width: 900px;
+            opacity: 0;
+            transform: translateY(40px) scale(.96);
+            transition: .7s cubic-bezier(.2, .7, .2, 1);
+            text-align: center
+        }
+
+        .fs .st.on {
+            opacity: 1;
+            transform: none
+        }
+
+        .fs .st h2 {
+            margin-bottom: 22px
+        }
+
+        .fs .st p {
+            margin: 0 auto
+        }
+
+        .fs .chips {
+            justify-content: center
+        }
+
+        .bar {
+            position: absolute;
+            left: 6vw;
+            right: 6vw;
+            bottom: 7vh;
+            height: 2px;
+            background: var(--line)
+        }
+
+        .bar i {
+            display: block;
+            height: 100%;
+            width: 0;
+            background: linear-gradient(90deg, var(--a), var(--b))
+        }
+
+        .orb {
+            position: absolute;
+            width: min(60vw, 620px);
+            aspect-ratio: 1;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, rgba(122, 162, 255, .35), rgba(255, 107, 154, .18) 50%, transparent 70%);
+            filter: blur(30px);
+            transition: transform .2s
+        }
+
+        .big4 {
+            font-family: var(--hd);
+            font-size: clamp(64px, 12vw, 150px);
+            font-weight: 800;
+            line-height: 1
+        }
+
+        /* highlights */
+        .hi {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 16px
+        }
+
+        .hi .glass {
+            padding: 28px
+        }
+
+        .hi b {
+            font-family: var(--hd);
+            font-size: clamp(40px, 5vw, 60px);
+            display: block;
+            line-height: 1;
+            margin-bottom: 10px
+        }
+
+        /* marquee */
+        .mq {
+            overflow: hidden;
+            border-block: 1px solid var(--line);
+            padding: 26px 0;
+            margin: 40px 0;
+            max-width: none
+        }
+
+        .mq div {
+            display: flex;
+            gap: 44px;
+            width: max-content;
+            animation: mv 40s linear infinite
+        }
+
+        .mq:hover div {
+            animation-play-state: paused
+        }
+
+        .mq span {
+            font-family: var(--hd);
+            font-size: clamp(28px, 4vw, 52px);
+            font-weight: 700;
+            color: transparent;
+            -webkit-text-stroke: 1px rgba(236, 233, 226, .55);
+            transition: .3s;
+            white-space: nowrap
+        }
+
+        .mq span:hover {
+            color: var(--tx)
+        }
+
+        @keyframes mv {
+            to {
+                transform: translateX(-50%)
+            }
+        }
+
+        .edu {
+            padding: 36px;
+            max-width: 760px
+        }
+
+        .edu h3 {
+            margin-bottom: 10px
+        }
+
+        #resume {
+            text-align: center
+        }
+
+        #resume h2 {
+            margin-inline: auto
+        }
+
+        #resume p {
+            margin-inline: auto
+        }
+
+        /* contact */
+        .ct {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px
+        }
+
+        form {
+            display: grid;
+            gap: 12px
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 15px 18px;
+            border-radius: 14px;
+            border: 1px solid var(--line);
+            background: var(--glass);
+            color: var(--tx);
+            font: inherit
+        }
+
+        input:focus,
+        textarea:focus,
+        .btn:focus-visible,
+        nav a:focus-visible {
+            outline: 2px solid var(--a);
+            outline-offset: 2px
+        }
+
+        textarea {
+            min-height: 140px;
+            resize: vertical
+        }
+
+        .links a {
+            display: block;
+            color: var(--tx);
+            text-decoration: none;
+            font-size: 20px;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--line);
+            transition: .3s
+        }
+
+        .links a:hover {
+            color: var(--b);
+            padding-left: 10px
+        }
+
+        footer {
+            padding: 40px 6vw;
+            text-align: center;
+            color: var(--mut);
+            font-size: 14px
+        }
+
+        .rv {
+            opacity: 0;
+            transform: translateY(34px);
+            transition: 1s cubic-bezier(.2, .7, .2, 1)
+        }
+
+        .rv.in {
+            opacity: 1;
+            transform: none
+        }
+
+        @media(max-width:860px) {
+            section {
+                padding: 90px 6vw
+            }
+
+            .ab,
+            .ex,
+            .cs .top,
+            .ct {
+                grid-template-columns: 1fr
+            }
+
+            .stick {
+                position: static
+            }
+
+            .cur {
+                display: none
+            }
+        }
+
+        @media(prefers-reduced-motion:reduce) {
+            * {
+                animation: none !important;
+                transition: none !important
+            }
+
+            html {
+                scroll-behavior: auto
+            }
+
+            .rv {
+                opacity: 1;
+                transform: none
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="bg"></canvas>
+    <div class="cur" id="cur"></div>
+    <nav id="nav" aria-label="Sections">
+        <a href="#home">Home</a><a href="#about">About</a><a href="#skills">Skills</a><a
+            href="#experience">Experience</a><a href="#projects">Projects</a><a href="#education">Education</a><a
+            href="#contact">Contact</a>
+    </nav>
+    <main>
+        <section id="home">
+            <div class="in" id="hin">
+                <div class="role">Full Stack Developer · .NET Core &amp; React.js</div>
+                <h1><span>Nagarjuna</span><span class="g">Reddy Chinthala</span></h1>
+                <div class="hl">Building fast, reliable products from database to interface.</div>
+                <p class="mut">2+ years shipping web applications, REST APIs, background services and responsive React
+                    interfaces across ride-sharing, meeting management and CRM products.</p>
+                <div class="row" style="margin-top:28px"><a class="btn p" href="#projects">View my work</a><a
+                        class="btn" href="mailto:chintalanagarjuna420@gmail.com?subject=Resume%20request">Download
+                        resume</a><a class="btn" href="#contact">Contact me</a></div>
+            </div>
+        </section>
+
+        <section id="about">
+            <h2 class="rv">Backend depth, <span class="g">frontend polish.</span></h2>
+            <div class="ab">
+                <div class="rv">
+                    <p>I'm a Full Stack Developer working across .NET Core, .NET 8/9, C#, TypeScript and SQL Server. I
+                        build web applications, REST APIs, background services and responsive React interfaces.</p>
+                    <p>My work covers spatial search, authentication and transactional notifications, and spans feature
+                        implementation, integration, testing and production issue resolution.</p>
+                    <p class="mut">Current focus: maintaining and extending the WorkEasy CRM frontend, while
+                        contributing to Duri and SIA.</p>
+                    <div class="chips"><span class="chip">.NET Core</span><span class="chip">C#</span><span
+                            class="chip">React.js</span><span class="chip">TypeScript</span><span class="chip">SQL
+                            Server</span><span class="chip">Spatial search</span></div>
+                </div>
+                <div class="stats rv">
+                    <div class="glass stat"><b class="g">2+</b>years of professional experience</div>
+                    <div class="glass stat"><b class="g">3</b>products: Duri, SIA / MeetMod.ai, WorkEasy CRM</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2 class="rv">Skills</h2>
+            <div class="sk" id="sk"></div>
+        </section>
+
+        <section id="experience">
+            <div class="ex">
+                <div class="stick">
+                    <h2 style="margin-bottom:24px">Experience</h2>
+                    <div class="big g" id="exbig">Duri</div>
+                    <p class="mut" style="margin-top:16px">Hansai Technosoft Pvt. Ltd.</p>
+                </div>
+                <div class="tl" id="tl">
+                    <article data-k="Duri">
+                        <h3>Full Stack Developer · Duri Ride Sharing Platform</h3>
+                        <div class="when">Hansai Technosoft Pvt. Ltd.</div>
+                        <ul>
+                            <li>Engineered a .NET Core FareEngine using route distance, stop sequences, seat tiers and
+                                surge multipliers, accelerating fare calculation by 65%.</li>
+                            <li>Built geospatial SearchAPI endpoints with SQL Server spatial indexes and polyline
+                                intersection logic, cutting search latency from 380 ms to under 75 ms.</li>
+                            <li>Refactored stored procedures, spatial queries, execution plans and indexes, reducing SQL
+                                Server CPU utilization by 35%.</li>
+                            <li>Integrated WhatsApp Business API and SMS gateways for OTPs, booking notifications and
+                                trip updates, achieving 99.8% notification delivery success.</li>
+                            <li>Built modular React and TypeScript components with standardized state patterns, reducing
+                                client-side runtime errors by 40%.</li>
+                        </ul>
+                        <div class="chips"><span class="chip">.NET Core</span><span class="chip">C#</span><span
+                                class="chip">React.js</span><span class="chip">TypeScript</span><span class="chip">SQL
+                                Server</span><span class="chip">Worker Services</span><span class="chip">WhatsApp Cloud
+                                API</span></div>
+                    </article>
+                    <article data-k="SIA">
+                        <h3>Full Stack Developer · SIA Corporate Web Platform / MeetMod.ai</h3>
+                        <div class="when">Hansai Technosoft Pvt. Ltd.</div>
+                        <ul>
+                            <li>Implemented Microsoft 365 and Google Workspace OAuth 2.0 flows for enterprise SSO.</li>
+                            <li>Integrated Google Drive and OneDrive APIs to automate document synchronization and cloud
+                                file exchange.</li>
+                            <li>Applied lazy loading, code splitting and memoized selectors, reaching a Google
+                                Lighthouse performance score above 95.</li>
+                            <li>Enhanced meeting creation, attendee management, recurring meetings and calendar
+                                integration.</li>
+                        </ul>
+                        <div class="chips"><span class="chip">React.js</span><span class="chip">TypeScript</span><span
+                                class="chip">Microsoft Graph API</span><span class="chip">Google Cloud APIs</span><span
+                                class="chip">OAuth 2.0</span><span class="chip">SCSS</span></div>
+                    </article>
+                    <article data-k="WorkEasy">
+                        <h3>React Developer · WorkEasy CRM Application</h3>
+                        <div class="when">May 2026 – Present · Hansai Technosoft Pvt. Ltd.</div>
+                        <ul>
+                            <li>Maintain and enhance CRM components, screens and user-facing workflows with reusable
+                                React components.</li>
+                            <li>Troubleshoot frontend issues, implement requested changes and validate behavior across
+                                CRM workflows.</li>
+                            <li>Translate functional requirements into responsive interfaces integrated with existing
+                                services.</li>
+                        </ul>
+                        <div class="chips"><span class="chip">React.js</span><span class="chip">JavaScript</span><span
+                                class="chip">Responsive UI</span><span class="chip">CRM services</span></div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2 class="rv">Case <span class="g">studies</span></h2>
+            <div class="glass cs rv">
+                <div class="top">
+                    <div>
+                        <h3>Duri: ride-sharing platform</h3>
+                        <p class="mut" style="margin-top:12px">Full Stack Developer. A ride-sharing platform covering
+                            ride publishing, booking, search, notifications and dashboards.</p>
+                        <h4>Problem solved</h4>
+                        <p>Riders needed fast route-aware search, accurate fares and dependable notifications, and the
+                            platform needed to run recurring ride operations in the background.</p>
+                        <h4>Key features</h4>
+                        <ul>
+                            <li>Ride publishing, booking approval and rejection, cancellation, saved searches, active
+                                ride management</li>
+                            <li>OTP verification, device sessions, JWT access and refresh tokens</li>
+                            <li>Notification outbox with queued background processing</li>
+                            <li>Windows and IANA timezone reconciliation between UTC storage and local IST display</li>
+                        </ul>
+                        <h4>Outcome</h4>
+                        <p>Fare calculation 65% faster, search latency down from 380 ms to under 75 ms, SQL Server CPU
+                            down 35%, 99.8% notification delivery, 40% fewer client-side runtime errors.</p>
+                    </div>
+                    <div class="vis"><u>FareEngine</u>.Calculate(<br>&nbsp;route.<i>distance</i>,
+                        stops.<i>sequence</i>,<br>&nbsp;seat.<i>tier</i>,
+                        surge.<i>multiplier</i>)<br><br><u>SearchAPI</u> → SQL Server<br>&nbsp;<i>geography</i> +
+                        spatial index<br>&nbsp;polyline ∩ route-cells<br>&nbsp;380 ms → &lt;75 ms<br><br><u>Outbox</u> →
+                        Worker → WhatsApp / SMS</div>
+                </div>
+                <div class="chips" style="margin-top:20px"><span class="chip">.NET Core</span><span
+                        class="chip">C#</span><span class="chip">React.js</span><span
+                        class="chip">TypeScript</span><span class="chip">SQL Server</span><span class="chip">REST
+                        APIs</span><span class="chip">Worker Services</span><span class="chip">WhatsApp Cloud API</span>
+                </div>
+            </div>
+
+            <div class="glass cs rv">
+                <div class="top">
+                    <div>
+                        <h3>SIA Corporate Web Platform / MeetMod.ai</h3>
+                        <p class="mut" style="margin-top:12px">Full Stack Developer. A meeting management web platform
+                            integrated with Microsoft and Google ecosystems.</p>
+                        <h4>Problem solved</h4>
+                        <p>Enterprise users needed one place to sign in with their company identity, schedule meetings
+                            and keep documents and calendars in sync.</p>
+                        <h4>Key features</h4>
+                        <ul>
+                            <li>Microsoft 365 and Google Workspace OAuth 2.0 SSO</li>
+                            <li>Google Drive and OneDrive document synchronization</li>
+                            <li>Meeting creation and editing, attendees, join links, recurring meetings</li>
+                            <li>Month, week and day calendar views with timezone conversion, overlapping events and
+                                encrypted session caching</li>
+                        </ul>
+                        <h4>Outcome</h4>
+                        <p>Google Lighthouse performance score above 95.</p>
+                    </div>
+                    <div class="vis"><u>Auth</u><br>&nbsp;Microsoft 365 ⇄ Google Workspace<br>&nbsp;OAuth 2.0 /
+                        SSO<br><br><u>Files</u><br>&nbsp;Google Drive ⇄
+                        OneDrive<br><br><u>Calendar</u><br>&nbsp;<i>month · week · day</i><br>&nbsp;timezone-aware</div>
+                </div>
+                <div class="chips" style="margin-top:20px"><span class="chip">React.js</span><span
+                        class="chip">TypeScript</span><span class="chip">Microsoft Graph API</span><span
+                        class="chip">Google Cloud APIs</span><span class="chip">OAuth 2.0</span><span
+                        class="chip">SCSS</span></div>
+            </div>
+
+            <div class="glass cs rv">
+                <div class="top">
+                    <div>
+                        <h3>WorkEasy CRM</h3>
+                        <p class="mut" style="margin-top:12px">React Developer, May 2026 to present. A CRM application I
+                            maintain and extend on the frontend.</p>
+                        <h4>Responsibilities</h4>
+                        <ul>
+                            <li>Maintain and enhance CRM screens and workflows with reusable React components</li>
+                            <li>Troubleshoot issues and validate behavior across CRM workflows</li>
+                            <li>Turn functional requirements into responsive interfaces that connect to existing
+                                services</li>
+                        </ul>
+                    </div>
+                    <div class="vis"><u>CRM
+                            UI</u><br>&nbsp;components/<br>&nbsp;screens/<br>&nbsp;workflows/<br><br><i>React.js ·
+                            JavaScript</i><br>responsive UI</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="feat">
+            <div class="fw" id="fw">
+                <div class="fs">
+                    <div class="orb" id="orb"></div>
+                    <div class="st on">
+                        <p class="mut">Featured project</p>
+                        <div class="big4 g">Duri</div>
+                        <p style="margin-top:14px">A ride-sharing platform I helped build end to end.</p>
+                    </div>
+                    <div class="st">
+                        <h2>The problem</h2>
+                        <p class="mut">Route-aware ride search, fair pricing and trusted notifications all have to stay
+                            fast as the platform grows.</p>
+                    </div>
+                    <div class="st">
+                        <h2>The solution</h2>
+                        <p>A FareEngine for route, stops, seat tiers and surge. Geospatial search on SQL Server spatial
+                            indexes. An outbox that queues every notification.</p>
+                    </div>
+                    <div class="st">
+                        <h2>Major features</h2>
+                        <p>Ride publishing, booking approvals, saved searches, OTP sessions with JWT and refresh tokens,
+                            scheduled jobs and worker processors.</p>
+                    </div>
+                    <div class="st">
+                        <h2>Stack</h2>
+                        <div class="chips"><span class="chip">.NET Core</span><span class="chip">C#</span><span
+                                class="chip">React.js</span><span class="chip">TypeScript</span><span class="chip">SQL
+                                Server</span><span class="chip">Worker Services</span><span class="chip">WhatsApp Cloud
+                                API</span></div>
+                    </div>
+                    <div class="st">
+                        <h2>Impact</h2>
+                        <p>65% faster fares. Search from 380 ms to under 75 ms. 35% lower SQL Server CPU. 99.8%
+                            notification delivery.</p>
+                    </div>
+                    <div class="bar"><i id="fbar"></i></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="highlights">
+            <h2 class="rv">Highlights</h2>
+            <div class="hi">
+                <div class="glass rv"><b class="g">65%</b>faster fare calculation with the .NET Core FareEngine</div>
+                <div class="glass rv"><b class="g">&lt;75 ms</b>search latency, down from 380 ms with spatial indexes
+                </div>
+                <div class="glass rv"><b class="g">35%</b>lower SQL Server CPU from query and index refactoring</div>
+                <div class="glass rv"><b class="g">99.8%</b>notification delivery via WhatsApp Business API and SMS
+                </div>
+                <div class="glass rv"><b class="g">40%</b>fewer client-side runtime errors with modular React and
+                    TypeScript</div>
+                <div class="glass rv"><b class="g">95+</b>Google Lighthouse performance score on SIA</div>
+            </div>
+        </section>
+
+        <div class="mq" aria-label="Technologies">
+            <div id="mq"></div>
+        </div>
+
+        <section id="education">
+            <h2 class="rv">Education</h2>
+            <div class="glass edu rv">
+                <h3>Bachelor of Technology (B.Tech)</h3>
+                <p>Electronics &amp; Communication Engineering</p>
+                <p class="mut" style="margin:0">Lakireddy Balireddy College of Engineering · 2019 – 2023</p>
+            </div>
+        </section>
+
+        <section id="resume">
+            <h2 class="rv">Want the <span class="g">complete story?</span></h2>
+            <p class="mut">The full resume covers every project, responsibility and result in detail.</p><a
+                class="btn p" href="mailto:chintalanagarjuna420@gmail.com?subject=Resume%20request">Download resume</a>
+        </section>
+
+        <section id="contact">
+            <h2 class="rv">Let's build something <span class="g">meaningful.</span></h2>
+            <div class="ct">
+                <div class="links"><a href="mailto:chintalanagarjuna420@gmail.com">chintalanagarjuna420@gmail.com</a><a
+                        href="tel:+919391284191">+91 9391284191</a><a href="#contact">India</a></div>
+                <form id="f"><input id="n" placeholder="Name" aria-label="Name" required><input id="e" type="email"
+                        placeholder="Email" aria-label="Email" required><textarea id="m" placeholder="Message"
+                        aria-label="Message" required></textarea><button class="btn p" type="submit">Send
+                        message</button></form>
+            </div>
+        </section>
+    </main>
+    <footer>© Nagarjuna Reddy Chinthala</footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+        const reduce = matchMedia('(prefers-reduced-motion:reduce)').matches;
+        // skills
+        const S = {
+            "Backend": [".NET Core", ".NET 8/9", "ASP.NET Core Web API", "C#", "REST APIs", "Async programming", "Entity Framework Core", "Dependency injection"],
+            "Frontend": ["React.js", "TypeScript", "JavaScript ES6+", "HTML5", "CSS3", "SCSS Modules", "Bootstrap", "Tailwind CSS", "Reusable components", "Responsive UI"],
+            "Database": ["SQL Server", "T-SQL", "Stored procedures", "Query optimization", "Execution plans", "Geography/geometry", "Spatial indexing", "Polyline routing"],
+            "Architecture": ["Clean Architecture", "Repository pattern", "SOLID", "Worker services", "Scheduled jobs", "Notification outbox"],
+            "Auth & integrations": ["OAuth 2.0", "JWT", "Azure AD SSO", "Microsoft Graph", "Google APIs", "Google Maps", "Google Drive", "OneDrive", "WhatsApp Business API", "SMS gateways"],
+            "Tools & testing": ["Git", "GitHub", "Postman", "Visual Studio", "VS Code", "CI/CD", "Agile/Scrum", "xUnit", "Moq", "Unit testing", "API & end-to-end testing"]
+        };
+        $('#sk').innerHTML = Object.entries(S).map(([k, v]) => `<div class="glass rv"><h3>${k}</h3><div class="chips">${v.map(t => `<span class="chip">${t}</span>`).join('')}</div></div>`).join('');
+        const T = [".NET Core", "C#", "React.js", "TypeScript", "SQL Server", "OAuth 2.0", "Microsoft Graph", "Google APIs", "WhatsApp API", "Entity Framework Core", "Tailwind CSS", "xUnit", "Git"];
+        $('#mq').innerHTML = [...T, ...T].map(t => `<span>${t}</span>`).join('');
+        // reveal
+        const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target) } }), { threshold: .12 });
+        $$('.rv').forEach(e => io.observe(e));
+        // nav active
+        const secs = $$('section[id]'), links = $$('nav a');
+        const ids = ['home', 'about', 'skills', 'experience', 'projects', 'education', 'contact'];
+        function nav() {
+            let cur = 'home'; const y = scrollY + innerHeight * .4; secs.forEach(s => { if (s.offsetTop <= y) cur = s.id });
+            const map = { feat: 'projects', highlights: 'projects', resume: 'education' }; cur = map[cur] || cur;
+            links.forEach(a => a.classList.toggle('on', a.getAttribute('href') === '#' + cur))
+        }
+        // experience focus
+        const arts = $$('#tl article');
+        function exp() {
+            const mid = innerHeight * .5; let best = arts[0], d = 1e9; arts.forEach(a => { const r = a.getBoundingClientRect(), c = Math.abs(r.top + Math.min(r.height, 300) / 2 - mid); if (c < d) { d = c; best = a } });
+            arts.forEach(a => a.classList.toggle('on', a === best)); $('#exbig').textContent = best.dataset.k
+        }
+        // featured
+        const sts = $$('.st'), fw = $('#fw');
+        function feat() {
+            const r = fw.getBoundingClientRect(), p = Math.min(1, Math.max(0, -r.top / (r.height - innerHeight)));
+            const i = Math.min(sts.length - 1, Math.floor(p * sts.length)); sts.forEach((s, j) => s.classList.toggle('on', j === i));
+            $('#fbar').style.width = p * 100 + '%'; $('#orb').style.transform = `translateY(${(p - .5) * -120}px) scale(${.8 + p * .5})`
+        }
+        function hero() { const y = Math.min(scrollY, innerHeight); $('#hin').style.transform = `translateY(${y * .25}px)`; $('#hin').style.opacity = 1 - y / innerHeight * .9 }
+        let tick = false; addEventListener('scroll', () => { if (!tick) { tick = true; requestAnimationFrame(() => { nav(); exp(); feat(); if (!reduce) hero(); tick = false }) } }, { passive: true });
+        nav(); exp(); feat();
+        // cursor + tilt
+        const cur = $('#cur'); addEventListener('pointermove', e => { cur.style.transform = `translate(${e.clientX}px,${e.clientY}px)` });
+        if (!reduce) $$('.sk .glass').forEach(c => { c.addEventListener('pointermove', e => { const r = c.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5; c.style.transform = `perspective(700px) rotateY(${x * 8}deg) rotateX(${-y * 8}deg)` }); c.addEventListener('pointerleave', () => c.style.transform = '') });
+        // form -> mail
+        $('#f').addEventListener('submit', e => { e.preventDefault(); location.href = `mailto:chintalanagarjuna420@gmail.com?subject=${encodeURIComponent('Portfolio message from ' + $('#n').value)}&body=${encodeURIComponent($('#m').value + '\n\n' + $('#e').value)}` });
+        // three.js background
+        try {
+            const cv = $('#bg'), R = new THREE.WebGLRenderer({ canvas: cv, alpha: true, antialias: true }); R.setPixelRatio(Math.min(devicePixelRatio, 2));
+            const sc = new THREE.Scene(), cam = new THREE.PerspectiveCamera(55, 1, .1, 100); cam.position.z = 9;
+            const g = new THREE.Group(); sc.add(g);
+            const mk = (geo, c, x, y, z) => { const m = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({ color: c, wireframe: true, transparent: true, opacity: .35 })); m.position.set(x, y, z); g.add(m); return m };
+            const o = [mk(new THREE.IcosahedronGeometry(2.2, 1), 0x7aa2ff, 3.2, .4, -2), mk(new THREE.TorusKnotGeometry(1, .28, 100, 12), 0xff6b9a, -4.5, -2.5, -4), mk(new THREE.OctahedronGeometry(1.2), 0x7aa2ff, -3, 3, -6)];
+            const N = 700, pos = new Float32Array(N * 3); for (let i = 0; i < N * 3; i++)pos[i] = (Math.random() - .5) * 40;
+            const pg = new THREE.BufferGeometry(); pg.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+            const pts = new THREE.Points(pg, new THREE.PointsMaterial({ size: .04, color: 0xece9e2, transparent: true, opacity: .6 })); sc.add(pts);
+            let mx = 0, my = 0; addEventListener('pointermove', e => { mx = e.clientX / innerWidth - .5; my = e.clientY / innerHeight - .5 });
+            function rs() { R.setSize(innerWidth, innerHeight, false); cam.aspect = innerWidth / innerHeight; cam.updateProjectionMatrix() } rs(); addEventListener('resize', rs);
+            (function loop(t) {
+                const s = reduce ? 0 : t * .0002; o.forEach((m, i) => { m.rotation.x = s * (1 + i * .4); m.rotation.y = s * 1.3 }); pts.rotation.y = s * .4;
+                g.position.y = scrollY * .0016; pts.position.y = scrollY * .0008; cam.position.x += (mx * 1.2 - cam.position.x) * .04; cam.position.y += (-my * .8 - cam.position.y) * .04; cam.lookAt(0, 0, 0); R.render(sc, cam); requestAnimationFrame(loop)
+            })(0)
+        } catch (e) { }
+    </script>
+</body>
+
+</html>
