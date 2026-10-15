@@ -1,12 +1,12 @@
 /**
  * Portfolio Data Configuration
- * Centralized data source for Nagarjuna Reddy Chinthala's portfolio.
+ * Centralized data source for Nagarjuna Reddy Chintala's portfolio.
  */
 
 export const personalInfo = {
   name: "Nagarjuna",
-  surname: "Reddy Chinthala",
-  fullName: "Nagarjuna Reddy Chinthala",
+  surname: "Reddy Chintala",
+  fullName: "Nagarjuna Reddy Chintala",
   role: "Full Stack Developer",
   specialization: ".NET Core & React.js",
   headline: "Building fast, reliable products from database to interface.",
@@ -29,36 +29,36 @@ export const personalInfo = {
 
 export const skillsData = {
   "Backend": [
-    ".NET Core", ".NET 8/9", "ASP.NET Core Web API", "C#", 
+    ".NET Core", ".NET 8/9", "ASP.NET Core Web API", "C#",
     "REST APIs", "Async / Await", "Entity Framework Core", "Dependency Injection"
   ],
   "Frontend": [
-    "React.js", "TypeScript", "JavaScript ES6+", "HTML5 & CSS3", 
+    "React.js", "TypeScript", "JavaScript ES6+", "HTML5 & CSS3",
     "SCSS / CSS Modules", "Reusable Components", "Responsive UI", "Tailwind CSS"
   ],
   "Database & Geospatial": [
-    "SQL Server", "T-SQL", "Stored Procedures", "Query Optimization", 
+    "SQL Server", "T-SQL", "Stored Procedures", "Query Optimization",
     "Execution Plans", "Spatial Indexing", "Geography Types", "Polyline Routing"
   ],
   "Architecture & Patterns": [
-    "Clean Architecture", "Repository Pattern", "SOLID Principles", 
+    "Clean Architecture", "Repository Pattern", "SOLID Principles",
     "Worker Services", "Scheduled Jobs", "Notification Outbox Pattern"
   ],
   "Auth & Cloud Integrations": [
-    "OAuth 2.0 / JWT", "Azure AD SSO", "Microsoft Graph API", 
-    "Google Cloud APIs", "Google Drive & OneDrive", "WhatsApp Cloud API", 
+    "OAuth 2.0 / JWT", "Azure AD SSO", "Microsoft Graph API",
+    "Google Cloud APIs", "Google Drive & OneDrive", "WhatsApp Cloud API",
     "MSG91 SMS Gateway", "DLT Telecom Registration", "Transactional & Service SMS"
   ],
   "Tools & Engineering Practices": [
-    "Git & GitHub", "Visual Studio & VS Code", "Postman", 
+    "Git & GitHub", "Visual Studio & VS Code", "Postman",
     "CI/CD Pipelines", "Agile / Scrum", "xUnit & Moq", "Lighthouse Optimization"
   ]
 };
 
 export const techMarqueeItems = [
-  ".NET Core", "C#", "React.js", "TypeScript", "SQL Server", 
-  "REST APIs", "OAuth 2.0", "MSG91 Gateway", "DLT Registration", 
-  "WhatsApp Cloud API", "Entity Framework Core", "Worker Services", 
+  ".NET Core", "C#", "React.js", "TypeScript", "SQL Server",
+  "REST APIs", "OAuth 2.0", "MSG91 Gateway", "DLT Registration",
+  "WhatsApp Cloud API", "Entity Framework Core", "Worker Services",
   "Clean Architecture", "xUnit", "Tailwind CSS", "Git"
 ];
 

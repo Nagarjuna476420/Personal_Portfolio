@@ -9,6 +9,9 @@
   background: rgba(18, 20, 26, 0.4);
   backdrop-filter: var(--glass-blur);
   user-select: none;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .marquee-track {
@@ -38,6 +41,22 @@
   color: var(--tx);
   -webkit-text-stroke: 1.2px var(--a);
   text-shadow: 0 0 20px rgba(122, 162, 255, 0.4);
+}
+
+@media (max-width: 768px) {
+  .marquee-outer-container {
+    padding: 18px 0;
+    margin: 36px 0;
+  }
+
+  .marquee-track {
+    gap: 30px;
+    animation-duration: 32s;
+  }
+
+  .marquee-item {
+    font-size: clamp(22px, 6vw, 36px);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

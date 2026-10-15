@@ -1,4 +1,4 @@
-# Nagarjuna Reddy Chinthala · 3D Developer Portfolio
+# Nagarjuna Reddy Chintala · 3D Developer Portfolio
 
 A modern, interactive 3D developer portfolio engineered with **React 19**, **WebGL 3D Graphics**, and **Vite**. Showcases full-stack software engineering projects, backend architectures, performance optimizations, and technical skills across **.NET Core**, **C#**, **TypeScript**, **React**, and **SQL Server**.
 
@@ -117,7 +117,7 @@ Ensure you have [Node.js](https://nodejs.org/) installed (v18 or higher recommen
 
 ## 👤 Author
 
-**Nagarjuna Reddy Chinthala**
+**Nagarjuna Reddy Chintala**
 - Role: Full Stack Developer (.NET Core & React.js)
 - Email: [chintalanagarjuna420@gmail.com](mailto:chintalanagarjuna420@gmail.com)
 - Location: India

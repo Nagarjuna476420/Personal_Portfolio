@@ -5,6 +5,7 @@
   align-items: start;
   position: relative;
   width: 100%;
+  box-sizing: border-box;
 }
 
 .experience-sticky-side {
@@ -38,12 +39,17 @@
   flex-direction: column;
   gap: 48px;
   min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .timeline-entry-card {
   position: relative;
   transition: opacity var(--transition-smooth), transform var(--transition-smooth);
   opacity: 0.45;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 .timeline-entry-card.is-active-entry {
@@ -71,6 +77,9 @@
 
 .timeline-card-content {
   padding: 30px;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 .timeline-entry-header {
@@ -117,12 +126,14 @@
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  width: 100%;
+  min-width: 0;
 }
 
 @media (max-width: 860px) {
   .experience-layout-grid {
     grid-template-columns: 1fr;
-    gap: 36px;
+    gap: 28px;
   }
 
   .experience-sticky-side {
@@ -130,15 +141,52 @@
     top: auto;
   }
 
+  .sticky-active-indicator {
+    margin-top: 10px;
+  }
+
+  .sticky-active-company {
+    font-size: clamp(30px, 8vw, 44px);
+  }
+
   .timeline-articles-list {
-    padding-left: 28px;
+    padding-left: 20px;
+    gap: 32px;
+    border-left-width: 2px;
   }
 
   .timeline-node-dot {
-    left: -35px;
+    left: -26px;
+    top: 20px;
+    width: 11px;
+    height: 11px;
   }
 
-  .sticky-active-indicator {
-    margin-top: 12px;
+  .timeline-card-content {
+    padding: 20px 16px;
+  }
+
+  .timeline-role-title {
+    font-size: 17.5px;
+  }
+
+  .timeline-project-name {
+    font-size: 14px;
+    margin-bottom: 14px;
+  }
+
+  .timeline-bullets-list {
+    padding-left: 16px;
+    margin-bottom: 16px;
+  }
+
+  .timeline-bullets-list li {
+    font-size: 14px;
+    line-height: 1.55;
+    margin-bottom: 8px;
+  }
+
+  .timeline-chips-row {
+    gap: 6px;
   }
 }

@@ -11,7 +11,7 @@ export function Footer() {
     <footer className="footer-container">
       <div className="footer-content">
         <p className="footer-copy">
-          © {new Date().getFullYear()} Nagarjuna Reddy Chinthala. Designed &amp; built with React &amp; clean architecture.
+          © {new Date().getFullYear()} Nagarjuna Reddy Chintala. Designed &amp; built with React &amp; clean architecture.
         </p>
         <button
           className="back-to-top-btn glass-panel"

@@ -6,6 +6,9 @@
   position: relative;
   z-index: 2;
   padding: calc(140px + env(safe-area-inset-top, 0px)) 6vw 100px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .hero-inner-container {
@@ -14,6 +17,7 @@
   margin: 0 auto;
   will-change: transform, opacity;
   transition: transform 0.1s ease-out, opacity 0.1s ease-out;
+  box-sizing: border-box;
 }
 
 .hero-badge {
@@ -28,19 +32,23 @@
   font-size: clamp(13px, 1.6vw, 16px);
   font-weight: 500;
   margin-bottom: 24px;
+  max-width: 100%;
+  line-height: 1.4;
 }
 
 .hero-badge-icon {
   color: var(--b);
   animation: pulse-glow 2.5s infinite;
+  flex-shrink: 0;
 }
 
 .hero-title {
-  font-size: clamp(52px, 10vw, 150px);
+  font-size: clamp(36px, 9vw, 150px);
   font-weight: 800;
-  line-height: 0.98;
+  line-height: 1;
   letter-spacing: -0.04em;
   margin-bottom: 24px;
+  word-break: break-word;
 }
 
 .hero-title span {
@@ -53,7 +61,7 @@
 
 .hero-headline {
   font-family: var(--hd);
-  font-size: clamp(22px, 3.2vw, 38px);
+  font-size: clamp(20px, 3.2vw, 38px);
   font-weight: 700;
   line-height: 1.25;
   color: var(--tx-heading);
@@ -62,7 +70,7 @@
 }
 
 .hero-bio {
-  font-size: clamp(16px, 1.8vw, 19px);
+  font-size: clamp(15px, 1.8vw, 19px);
   line-height: 1.7;
   max-width: 62ch;
   margin-bottom: 36px;
@@ -72,15 +80,49 @@
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
+  width: 100%;
 }
 
 @media (max-width: 768px) {
   .hero-section {
-    padding-top: calc(110px + env(safe-area-inset-top, 0px));
+    padding-top: calc(100px + env(safe-area-inset-top, 0px));
     padding-bottom: 60px;
+    min-height: auto;
   }
+
+  .hero-badge {
+    font-size: 12.5px;
+    padding: 6px 12px;
+    margin-bottom: 18px;
+  }
+
+  .hero-title {
+    font-size: clamp(34px, 10vw, 56px);
+    margin-bottom: 18px;
+    letter-spacing: -0.03em;
+  }
+
+  .hero-headline {
+    font-size: clamp(18px, 5vw, 24px);
+    margin-bottom: 16px;
+    max-width: 100%;
+  }
+
+  .hero-bio {
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 26px;
+    max-width: 100%;
+  }
+
   .hero-actions-row {
     flex-direction: column;
     align-items: stretch;
+    gap: 12px;
+  }
+
+  .hero-actions-row .btn-custom {
+    width: 100%;
+    justify-content: center;
   }
 }

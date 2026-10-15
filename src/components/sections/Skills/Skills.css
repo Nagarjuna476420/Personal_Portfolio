@@ -1,13 +1,18 @@
 .skills-cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
   gap: 20px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .skill-category-card {
-  padding: 30px;
+  padding: 28px;
   display: flex;
   flex-direction: column;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 .skill-category-title {
@@ -21,13 +26,22 @@
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  width: 100%;
+  min-width: 0;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .skills-cards-grid {
     grid-template-columns: 1fr;
+    gap: 16px;
   }
+
   .skill-category-card {
-    padding: 22px;
+    padding: 20px 16px;
+  }
+
+  .skill-category-title {
+    font-size: 19px;
+    margin-bottom: 14px;
   }
 }
