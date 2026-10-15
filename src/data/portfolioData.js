@@ -46,7 +46,8 @@ export const skillsData = {
   ],
   "Auth & Cloud Integrations": [
     "OAuth 2.0 / JWT", "Azure AD SSO", "Microsoft Graph API", 
-    "Google Cloud APIs", "Google Drive & OneDrive", "WhatsApp Cloud API", "SMS Gateways"
+    "Google Cloud APIs", "Google Drive & OneDrive", "WhatsApp Cloud API", 
+    "MSG91 SMS Gateway", "DLT Telecom Registration", "Transactional & Service SMS"
   ],
   "Tools & Engineering Practices": [
     "Git & GitHub", "Visual Studio & VS Code", "Postman", 
@@ -56,9 +57,9 @@ export const skillsData = {
 
 export const techMarqueeItems = [
   ".NET Core", "C#", "React.js", "TypeScript", "SQL Server", 
-  "REST APIs", "OAuth 2.0", "Entity Framework Core", "Microsoft Graph", 
-  "Google Cloud", "WhatsApp Cloud API", "Worker Services", "Clean Architecture", 
-  "xUnit", "Tailwind CSS", "Git"
+  "REST APIs", "OAuth 2.0", "MSG91 Gateway", "DLT Registration", 
+  "WhatsApp Cloud API", "Entity Framework Core", "Worker Services", 
+  "Clean Architecture", "xUnit", "Tailwind CSS", "Git"
 ];
 
 export const experienceData = [
@@ -72,11 +73,12 @@ export const experienceData = [
     highlights: [
       "Engineered a .NET Core FareEngine using route distance, stop sequences, seat tiers, and surge multipliers, accelerating fare calculation by 65%.",
       "Built geospatial SearchAPI endpoints with SQL Server spatial indexes and polyline intersection logic, cutting search latency from 380 ms to under 75 ms.",
-      "Refactored stored procedures, spatial queries, execution plans, and indexes, reducing SQL Server CPU utilization by 35%.",
-      "Integrated WhatsApp Business Cloud API and SMS gateways for OTPs, booking confirmations, and trip updates, achieving 99.8% notification delivery success.",
+      "Integrated WhatsApp Business Cloud API with structured Marketing & Utility message templates for promo campaigns, OTP authentication, booking status, and trip receipts.",
+      "Engineered end-to-end SMS services using the MSG91 third-party gateway, compliant with India Telecom DLT (Distributed Ledger Technology) registration for Transactional and Service message routes.",
+      "Architected a transactional Notification Outbox pattern with background Worker Services and automatic fallback cascading (WhatsApp → MSG91 SMS), achieving 99.8% delivery success.",
       "Built modular React and TypeScript components with standardized state patterns, reducing client-side runtime errors by 40%."
     ],
-    tech: [".NET Core", "C#", "React.js", "TypeScript", "SQL Server", "Worker Services", "WhatsApp Cloud API", "Spatial Search"]
+    tech: [".NET Core", "C#", "React.js", "TypeScript", "SQL Server", "MSG91 SMS", "DLT Registration", "WhatsApp API", "Worker Services", "Spatial Search"]
   },
   {
     id: "sia",
@@ -114,30 +116,34 @@ export const projectCaseStudies = [
     id: "duri-platform",
     title: "Duri: Ride-Sharing Platform",
     role: "Full Stack Developer",
-    tagline: "An enterprise ride-sharing platform covering ride publishing, live booking, geospatial search, transactional alerts, and automated operations.",
-    problem: "Riders and drivers needed instantaneous route-aware ride discovery, dynamic surge fares, and 100% reliable communications, while the backend handled high-throughput recurring background jobs.",
+    tagline: "An enterprise ride-sharing platform covering ride publishing, live booking, geospatial search, MSG91 DLT SMS & WhatsApp template communication pipelines.",
+    problem: "Riders and drivers needed instantaneous route-aware ride discovery, dynamic surge fares, and 100% reliable communications adhering to telecom DLT regulatory mandates, while background processors handled high-volume messaging.",
     features: [
       "Ride publishing, real-time booking approval/rejection, cancellations, and saved route alerts",
+      "WhatsApp Business Cloud API integration with approved Marketing and Utility templates (trip alerts, dynamic receipts, promotional broadcasts)",
+      "MSG91 SMS Gateway integration with full DLT (Distributed Ledger Technology) registration, header bindings, entity approval, and Transactional & Service SMS dispatch",
+      "Transactional Notification Outbox pattern with background Worker Services, automated webhook delivery tracking, and WhatsApp-to-SMS failover",
       "OTP verification, device session management, JWT access tokens, and rolling refresh tokens",
-      "Transactional Notification Outbox pattern with background worker queuing",
       "Windows & IANA timezone reconciliation between UTC database persistence and local IST user display"
     ],
-    outcomes: "Fare calculation accelerated by 65%; search latency plunged from 380 ms to <75 ms; database CPU usage decreased by 35%; 99.8% notification delivery.",
+    outcomes: "Fare calculation accelerated by 65%; search latency plunged from 380 ms to <75 ms; database CPU usage decreased by 35%; 99.8% notification delivery rate across WhatsApp and MSG91 SMS.",
     codeSnippet: `// Geospatial Search & Fare Pipeline
-FareEngine.Calculate(
-  route.Distance,
-  stops.Sequence,
-  seat.Tier,
-  surge.Multiplier
-);
+FareEngine.Calculate(route.Distance, stops.Sequence, seat.Tier, surge.Multiplier);
+SearchAPI -> SQL Server: geography::STIntersects() [<75ms]
 
-SearchAPI -> SQL Server
-  geography::STIntersects()
-  Polyline ∩ Route Cells
-  Latency: 380ms -> <75ms
-
-Outbox -> Background Worker -> WhatsApp / SMS`,
-    chips: [".NET Core", "C#", "React.js", "TypeScript", "SQL Server", "REST APIs", "Worker Services", "WhatsApp API"]
+// Multi-Channel Messaging (WhatsApp + MSG91 DLT)
+NotificationOutbox.Dispatch(new MessageRequest {
+  Channel = ChannelType.WhatsApp,
+  Category = TemplateCategory.Utility, // Marketing / Utility
+  Payload = new { TripId = trip.Id, Driver = trip.DriverName },
+  Fallback = new SmsFallback {
+    Provider = "MSG91",
+    Route = SmsRoute.Transactional,    // Transactional / Service
+    DltTemplateId = "DLT_DURI_TRIP_01",
+    SenderId = "DURAPP"
+  }
+});`,
+    chips: [".NET Core", "C#", "React.js", "TypeScript", "SQL Server", "MSG91 SMS", "DLT Registration", "WhatsApp API", "Worker Services", "REST APIs"]
   },
   {
     id: "sia-meetmod",
@@ -217,21 +223,21 @@ export const featuredSteps = [
   {
     step: "04",
     subtitle: "Key Capabilities",
-    title: "End-to-End Features",
-    desc: "Ride publishing, booking approvals, OTP verification, JWT sessions, timezone reconciliation, and WhatsApp Cloud API dispatch."
+    title: "Multi-Channel Alerts",
+    desc: "Ride booking, OTP verification, WhatsApp Marketing & Utility templates, and regulatory DLT-registered MSG91 SMS (Transactional & Service routes)."
   },
   {
     step: "05",
     subtitle: "Tech Stack",
     title: "Modern & Robust",
-    desc: ".NET Core, C#, React.js, TypeScript, SQL Server, Worker Services, and WhatsApp Cloud API.",
-    chips: [".NET Core", "C#", "React.js", "TypeScript", "SQL Server", "Worker Services", "WhatsApp API"]
+    desc: ".NET Core, C#, React.js, TypeScript, SQL Server, Worker Services, WhatsApp Cloud API, and MSG91 DLT SMS Gateway.",
+    chips: [".NET Core", "C#", "React.js", "TypeScript", "SQL Server", "Worker Services", "MSG91 SMS", "DLT Registration", "WhatsApp API"]
   },
   {
     step: "06",
     subtitle: "Measurable Impact",
     title: "65% Faster Fares",
-    desc: "Reduced search latency from 380 ms to <75 ms, reduced SQL Server CPU by 35%, and achieved a 99.8% notification delivery rate."
+    desc: "Reduced search latency from 380 ms to <75 ms, reduced SQL Server CPU by 35%, and achieved a 99.8% notification delivery rate across WhatsApp and SMS."
   }
 ];
 
@@ -239,7 +245,7 @@ export const highlightsData = [
   { metric: "65%", label: "Faster fare calculation", desc: "Engineered with .NET Core FareEngine using polyline & surge algorithms" },
   { metric: "<75 ms", label: "Search latency", desc: "Down from 380 ms through SQL Server spatial indexes & polyline routing" },
   { metric: "35%", label: "Lower SQL CPU usage", desc: "Achieved via query refactoring, execution plans, and targeted indexes" },
-  { metric: "99.8%", label: "Notification delivery", desc: "Guaranteed via WhatsApp Cloud API, SMS gateways, and Outbox workers" },
+  { metric: "99.8%", label: "Notification delivery", desc: "Guaranteed via WhatsApp Cloud API, MSG91 DLT-registered SMS & Outbox worker" },
   { metric: "40%", label: "Fewer runtime errors", desc: "Built with modular React, TypeScript, and strict state boundaries" },
   { metric: "95+", label: "Lighthouse performance", desc: "Delivered on SIA through code splitting, lazy loading, and asset tuning" }
 ];

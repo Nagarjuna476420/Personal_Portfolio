@@ -743,14 +743,13 @@
                                 intersection logic, cutting search latency from 380 ms to under 75 ms.</li>
                             <li>Refactored stored procedures, spatial queries, execution plans and indexes, reducing SQL
                                 Server CPU utilization by 35%.</li>
-                            <li>Integrated WhatsApp Business API and SMS gateways for OTPs, booking notifications and
-                                trip updates, achieving 99.8% notification delivery success.</li>
+                            <li>Integrated WhatsApp Business Cloud API with structured Marketing &amp; Utility templates (ride alerts, OTPs, dynamic receipts), and engineered end-to-end SMS services using the MSG91 third-party gateway with telecom DLT registration for Transactional and Service routes, achieving 99.8% notification delivery success.</li>
                             <li>Built modular React and TypeScript components with standardized state patterns, reducing
                                 client-side runtime errors by 40%.</li>
                         </ul>
                         <div class="chips"><span class="chip">.NET Core</span><span class="chip">C#</span><span
                                 class="chip">React.js</span><span class="chip">TypeScript</span><span class="chip">SQL
-                                Server</span><span class="chip">Worker Services</span><span class="chip">WhatsApp Cloud
+                                Server</span><span class="chip">MSG91 SMS</span><span class="chip">DLT Registration</span><span class="chip">Worker Services</span><span class="chip">WhatsApp Cloud
                                 API</span></div>
                     </article>
                     <article data-k="SIA">
@@ -814,11 +813,11 @@
                         stops.<i>sequence</i>,<br>&nbsp;seat.<i>tier</i>,
                         surge.<i>multiplier</i>)<br><br><u>SearchAPI</u> → SQL Server<br>&nbsp;<i>geography</i> +
                         spatial index<br>&nbsp;polyline ∩ route-cells<br>&nbsp;380 ms → &lt;75 ms<br><br><u>Outbox</u> →
-                        Worker → WhatsApp / SMS</div>
+                        Worker → WhatsApp (Marketing/Utility) ⇄ MSG91 SMS (DLT Transactional/Service)</div>
                 </div>
                 <div class="chips" style="margin-top:20px"><span class="chip">.NET Core</span><span
                         class="chip">C#</span><span class="chip">React.js</span><span
-                        class="chip">TypeScript</span><span class="chip">SQL Server</span><span class="chip">REST
+                        class="chip">TypeScript</span><span class="chip">SQL Server</span><span class="chip">MSG91 SMS</span><span class="chip">DLT Registration</span><span class="chip">REST
                         APIs</span><span class="chip">Worker Services</span><span class="chip">WhatsApp Cloud API</span>
                 </div>
             </div>
