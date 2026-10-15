@@ -1,12 +1,12 @@
 # Nagarjuna Reddy Chinthala · 3D Developer Portfolio
 
-A modern, interactive 3D developer portfolio engineered with **React 19**, **Three.js**, and **Vite**. Showcases full-stack software engineering projects, backend architectures, performance optimizations, and technical skills across **.NET Core**, **C#**, **TypeScript**, **React**, and **SQL Server**.
+A modern, interactive 3D developer portfolio engineered with **React 19**, **WebGL 3D Graphics**, and **Vite**. Showcases full-stack software engineering projects, backend architectures, performance optimizations, and technical skills across **.NET Core**, **C#**, **TypeScript**, **React**, and **SQL Server**.
 
 ---
 
 ## ✨ Features
 
-- **Interactive 3D WebGL Background**: Built with Three.js featuring wireframe geometries (Icosahedron, Torus Knot, Octahedron) and a responsive 700-particle starfield reacting to cursor movements and scroll parallax.
+- **Interactive 3D WebGL Background**: Built with WebGL featuring wireframe geometries (Icosahedron, Torus Knot, Octahedron) and a responsive 700-particle starfield reacting to cursor movements and scroll parallax.
 - **Glassmorphic Design System**: Modern dark aesthetic with tailored HSL gradients, frosted glass panels, ambient pointer glow follower, and subtle micro-animations.
 - **Dynamic Sticky Navigation & Storytelling**:
   - Sticky capsule navigation with active section scroll-spy tracking.
@@ -22,7 +22,7 @@ A modern, interactive 3D developer portfolio engineered with **React 19**, **Thr
 ## 🛠️ Tech Stack
 
 - **Core**: React 19, JavaScript (ES6+), HTML5
-- **3D / Graphics**: Three.js (WebGL)
+- **3D / Graphics**: WebGL 3D Engine
 - **Styling**: Vanilla CSS, Design Tokens, CSS Modules, Glassmorphism
 - **Build Tool**: Vite
 - **Icons**: Lucide React
@@ -62,10 +62,10 @@ A modern, interactive 3D developer portfolio engineered with **React 19**, **Thr
 │   │   │   ├── Education/           # Academic degree and college details
 │   │   │   ├── ResumeCTA/           # Resume download action card
 │   │   │   └── Contact/             # Interactive form with validation & toast alerts
-│   │   └── three/
-│   │       └── ThreeBackground.jsx  # WebGL 3D canvas and particle physics
+│   │   └── background/
+│   │       └── SceneBackground.jsx  # WebGL 3D canvas and particle physics
 │   ├── data/
-│   │   └── portfolioData.js         # Centralized single source of truth for portfolio content
+│   └── portfolioData.js             # Centralized single source of truth for portfolio content
 │   ├── hooks/
 │   │   ├── useReducedMotion.js      # Accessibility detection
 │   │   ├── useScrollSpy.js          # Active navigation section tracker

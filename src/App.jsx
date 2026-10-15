@@ -1,6 +1,6 @@
 import React from 'react';
 import { ErrorBoundary } from './components/common/ErrorBoundary/ErrorBoundary';
-import { ThreeBackground } from './components/three/ThreeBackground';
+import { SceneBackground } from './components/background/SceneBackground';
 import { CursorGlow } from './components/common/CursorGlow/CursorGlow';
 import { Navbar } from './components/layout/Navbar/Navbar';
 import { Footer } from './components/layout/Footer/Footer';
@@ -22,7 +22,7 @@ export default function App() {
     <ErrorBoundary>
       <div className="portfolio-app-root">
         {/* Interactive 3D WebGL Background */}
-        <ThreeBackground />
+        <SceneBackground />
 
         {/* Ambient Pointer Glow Follower */}
         <CursorGlow />

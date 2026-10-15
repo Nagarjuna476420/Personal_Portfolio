@@ -1011,7 +1011,7 @@
         if (!reduce) $$('.sk .glass').forEach(c => { c.addEventListener('pointermove', e => { const r = c.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5; c.style.transform = `perspective(700px) rotateY(${x * 8}deg) rotateX(${-y * 8}deg)` }); c.addEventListener('pointerleave', () => c.style.transform = '') });
         // form -> mail
         $('#f').addEventListener('submit', e => { e.preventDefault(); location.href = `mailto:chintalanagarjuna420@gmail.com?subject=${encodeURIComponent('Portfolio message from ' + $('#n').value)}&body=${encodeURIComponent($('#m').value + '\n\n' + $('#e').value)}` });
-        // three.js background
+        // 3D WebGL background
         try {
             const cv = $('#bg'), R = new THREE.WebGLRenderer({ canvas: cv, alpha: true, antialias: true }); R.setPixelRatio(Math.min(devicePixelRatio, 2));
             const sc = new THREE.Scene(), cam = new THREE.PerspectiveCamera(55, 1, .1, 100); cam.position.z = 9;

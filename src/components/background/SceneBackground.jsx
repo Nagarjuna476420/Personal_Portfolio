@@ -1,9 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
-import './ThreeBackground.css';
+import './SceneBackground.css';
 
-export function ThreeBackground() {
+export function SceneBackground() {
   const canvasRef = useRef(null);
   const prefersReducedMotion = useReducedMotion();
 
@@ -141,5 +141,5 @@ export function ThreeBackground() {
     }
   }, [prefersReducedMotion]);
 
-  return <canvas ref={canvasRef} id="bg-canvas" className="three-background-canvas" aria-hidden="true" />;
+  return <canvas ref={canvasRef} id="bg-canvas" className="scene-background-canvas" aria-hidden="true" />;
 }
